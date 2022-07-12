@@ -264,7 +264,7 @@ ggplot(data=merged_data, aes(x=TotalSteps, y = BMI, color=Calories))+
    scale_color_gradient(low="blue", high="yellow")
 ```
 
-Step 7: Regression analysis and R value, leverage points (lm.influence)
+###Regression analysis and R value, leverage points (lm.influence)
 ```{r}
 #With lm() analysis, we want to look at the R-squared. 0% indicates that the model explains none of the variability of the response data around its mean. 100% indicates that the model explains all the variability of the response data around its mean. 
 step_vs_sedentary.mod <- lm(SedentaryMinutes ~ TotalSteps, data = merged_data)
@@ -279,7 +279,7 @@ veryactive_vs_sleep.mod <- lm(VeryActiveMinutes ~ TotalMinutesAsleep, data = mer
 summary(veryactive_vs_sleep.mod)
 ```
 
-Step 8: This high volume of moderate-to-vigorous physical activity is achieved by a very small proportion of the population. Let's take a look at this. 
+###This high volume of moderate-to-vigorous physical activity is achieved by a very small proportion of the population. Let's take a look at this. 
 ```{r}
 active_minutes_vs_calories <- ggplot(data = merged_data) + 
   geom_point(mapping=aes(x=Calories, y=FairlyActiveMinutes), color = "maroon", alpha = 1/3) +
@@ -341,8 +341,7 @@ active_minutes_vs_distance <- ggplot(data = merged_data) +
   labs(x = "Distance", y = "Active Minutes")
 active_minutes_vs_distance
 ```
-
-Step 9: Analysis on sleep
+###Analysis on sleep
 ```{r}
 #Sleep time in hours instead of minutes
 sleep_day_in_hour <-sleep_day
